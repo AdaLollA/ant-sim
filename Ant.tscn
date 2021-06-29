@@ -69,6 +69,7 @@ position = Vector2( 5.5, 0 )
 shape = SubResource( 5 )
 
 [node name="PheromoneDropTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 [connection signal="area_entered" from="Left" to="." method="_on_Left_area_entered"]
 [connection signal="area_entered" from="Right" to="." method="_on_Right_area_entered"]

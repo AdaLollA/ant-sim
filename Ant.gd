@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var pheromone = preload("res://Pheromone.tscn")
+
 export var speed = 50
 export var wanderStrength = .05
 
@@ -40,5 +42,8 @@ func _on_Mouth_area_entered(area):
 	# todo ant is now carrying food
 
 func _on_PheromoneDropTimer_timeout():
+	var pheromone_instance = pheromone.instance()
+	pheromone_instance.position = global_position
+	get_tree().root.add_child(pheromone_instance)
 	print('tick')
 	pass # Replace with function body.
