@@ -1,9 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Ant.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sim.gd" type="Script" id=2]
+[ext_resource path="res://Food.tscn" type="PackedScene" id=3]
 
 [node name="Sim" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Ant" parent="." instance=ExtResource( 1 )]
+position = Vector2( 500.253, 315.254 )
+
+[node name="Food" parent="." instance=ExtResource( 3 )]
+position = Vector2( 595.585, 267.116 )
+
+[node name="Food2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 400.203, 389.82 )
+
+[node name="Food3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 429.463, 241.632 )
+
+[node name="Food4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 576.707, 403.034 )
