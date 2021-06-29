@@ -36,3 +36,9 @@ func _on_Eyes_area_entered(area):
 func _on_Mouth_area_entered(area):
 	target = null
 	area.get_parent().queue_free()
+	rotate(PI)
+	# todo ant is now carrying food
+
+func _on_PheromoneDropTimer_timeout():
+	print('tick')
+	pass # Replace with function body.

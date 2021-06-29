@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://circle.png" type="Texture" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 31.5629
+radius = 16.647
 
 [node name="Food" type="Sprite"]
 scale = Vector2( 0.2, 0.2 )
