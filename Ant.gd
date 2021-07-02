@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
 var pheromone = preload("res://Pheromone.tscn")
+enum State {LOOKING_FOR_FOOD, HEADING_HOME}
 
 export var speed = 50
 export var wanderStrength = .05
 
+var state = State.LOOKING_FOR_FOOD
 var target = null
 
 func _ready():
@@ -36,14 +38,19 @@ func _on_Eyes_area_entered(area):
 		target = area.get_global_position()
 
 func _on_Mouth_area_entered(area):
+	# picked up food
 	target = null
 	area.get_parent().queue_free()
 	rotate(PI)
+	state = State.HEADING_HOME
 	# todo ant is now carrying food
 
+enum Type {HOME, FOOD}
 func _on_PheromoneDropTimer_timeout():
 	var pheromone_instance = pheromone.instance()
+	if state == State.LOOKING_FOR_FOOD:
+		pheromone_instance.type = Type.HOME
+	elif state == State.HEADING_HOME:
+		pheromone_instance.type = Type.FOOD
 	pheromone_instance.position = global_position
 	get_tree().root.add_child(pheromone_instance)
-	print('tick')
-	pass # Replace with function body.
